@@ -4,3 +4,5 @@ For this homework we are to create an arbiter slice module and test bench, a 4bi
 
 Erik Fox Winter '21
 Prof. Mark Faust
+
+1
