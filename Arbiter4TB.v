@@ -10,8 +10,8 @@ wire [0:3]g;
 Arbiter4 A0(r,g);
 initial
 begin
-$display("G0 G1 G3 G3");
-$monitor("%b %b %b %b",g[0],g[1],g[2],g[3]);
+$display("R0 R1 R2 R3 G0 G1 G3 G3");
+$monitor("%b  %b  %b  %b  %b  %b  %b  %b",r[0],r[1],r[2], r[3],g[0],g[1],g[2],g[3]);
 end
 always
 begin
