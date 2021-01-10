@@ -33,6 +33,23 @@ begin
 			$stop;
 		end
 	end
-	r=r+1;
+//	r=r+1;
+end
+
+initial
+begin
+#6
+r=8'b10101010;
+
+#6
+r=8'b00101010;
+#6
+r=8'b00001010;
+#6
+r=8'b10101010;
+#6
+r=8'b11111111;
+#20
+$stop;
 end
 endmodule
