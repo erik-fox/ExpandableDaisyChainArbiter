@@ -7,18 +7,19 @@ module top();
 parameter n=8;
 reg [0:n-1]r=0;
 wire [0:n-1]g;
-reg [0:n]test=1;
+reg [0:n]test;
 ArbiterN #(n) A0(r,g);
-/*
+
 initial
 begin
 $monitor("%b  -  %d",r,g);
 end
-*/
+
 always
 begin
 #6
 	test=g<<1;
+	$display("test: %d",test);
 	if( r==((1<<n)-1))
 	begin
 		$display("no error\n");
