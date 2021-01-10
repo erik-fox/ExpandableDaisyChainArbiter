@@ -7,7 +7,7 @@ module top();
 parameter n=8;
 reg [0:n-1]r=0;
 wire [0:n-1]g;
-
+reg counter=0;
 ArbiterN #(n) A0(r,g);
 initial
 begin
@@ -19,6 +19,8 @@ begin
 #6;
 if( r==((1<<n)-1))
 	$stop;
+if(!(r<(g<<1)&&r>=g))
+	counter=counter+1; 
 r=r+1;
 end
 endmodule
