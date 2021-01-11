@@ -1,6 +1,5 @@
 //Erik Fox
 //1/9/2021
-//ECE571 - HW 1
 //Scalable bit Arbiter
 
 module ArbiterN(r,g);
