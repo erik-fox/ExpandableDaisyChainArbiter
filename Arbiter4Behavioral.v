@@ -1,6 +1,5 @@
 //Erik Fox
 //1/8/2021
-//ECE571-HW 1
 //Four Bit Arbiter, Behavioral model
 
 
