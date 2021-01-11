@@ -22,7 +22,6 @@ end
 always
 begin
 	#SIMTIME
-	$display("No Error\n");
 	$stop;
 end
 
