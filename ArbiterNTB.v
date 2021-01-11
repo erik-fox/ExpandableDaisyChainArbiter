@@ -1,6 +1,5 @@
 //Erik Fox
 //1/9/2021
-//ECE571 - HW 1
 //Test bench for Nbit Arbiter
 
 module top();
