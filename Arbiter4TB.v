@@ -6,6 +6,7 @@
 module top;
 reg [0:3]r=0;
 wire [0:3]g;
+parameter SIMTIME=1000;
 
 Arbiter4 A0(r,g);
 initial
@@ -22,4 +23,10 @@ r=r+4'b0001;
 end
 
 
+always
+begin
+	#SIMTIME
+	$display("No Error\n");
+	$stop;
+end
 endmodule
