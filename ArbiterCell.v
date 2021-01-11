@@ -1,6 +1,5 @@
 //Erik Fox
 //1/7/2021
-//ECE571 - HW1
 //Structural Description of single bit cell of arbiter
 
 module ArbiterCell(r,cin,g,cout);
