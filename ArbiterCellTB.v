@@ -11,23 +11,28 @@
 module top;
 reg r=0, cin=0;
 wire g, cout;
+parameter SIMTIME=100;
 
 ArbiterCell A0(r,cin,g,cout);
+
+
 initial
 begin
 $display("Cin R G Cout");
 $monitor("%b   %b %b %b",cin, r, g, cout);
 end
 
-initial
+always
 begin
 #6;
-{cin,r}=2'b00;
-#6;
-{cin,r}=2'b01;
-#6;
-{cin,r}=2'b10;
-#6;
-{cin,r}=2'b11;
+{cin,r}=$urandom();
 end
+
+always
+begin
+
+	#SIMTIME
+	$stop;
+end
+
 endmodule
