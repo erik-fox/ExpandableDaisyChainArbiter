@@ -6,7 +6,8 @@
 module top;
 reg [0:3]r=0;
 wire [0:3]g;
-
+parameter SIMTIME = 1000;
+	
 Arbiter4 A0(r,g);
 initial
 begin
@@ -15,11 +16,14 @@ $monitor("%b  %b  %b  %b  %b  %b  %b  %b",r[0],r[1],r[2], r[3],g[0],g[1],g[2],g[
 end
 always
 begin
-#6;
-if(r==15)
-	$stop;
-r=r+4'b0001;
+#6
+	r=$urandom();
 end
-
+always
+begin
+	#SIMTIME
+	$display("No Error\n");
+	$stop;
+end
 
 endmodule
