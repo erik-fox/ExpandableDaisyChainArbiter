@@ -1,6 +1,5 @@
 //Erik Fox
 //1/7/2021
-//ECE571 - HW1
 //Test Bench for 1 bit slice of Arbiter
 //Truth Table
 //Cin R G Cout
