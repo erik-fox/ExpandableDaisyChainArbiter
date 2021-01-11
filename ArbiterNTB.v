@@ -4,52 +4,45 @@
 //Test bench for Nbit Arbiter
 
 module top();
-parameter n=8;
+parameter n=4;
+parameter SIMTIME=10000;
 reg [0:n-1]r=0;
 wire [0:n-1]g;
-reg [0:n]test;
+reg [0:n]ubound;
 ArbiterN #(n) A0(r,g);
 
-initial
+/*initial
 begin
-$monitor("%b  -  %d",r,g);
-end
+$monitor("%b  -  %b",r,g);
+end*/
 
 always
 begin
-#6
-	test=g<<1;
-	$display("test: %d",test);
-	if( r==((1<<n)-1))
+#10
+	ubound=g<<1;
+	if( g==0)
 	begin
-		$display("no error\n");
+		if(r)
+		begin
+		$display("Failure");
 		$stop;
+		end
 	end
-	if( g!=0)
+		
+	else
 	begin
-		if(!(r<(test)&&r>=g))
+		if(!(r<(ubound)&&r>=g))
 		begin
 			$display("Failure\n");
 			$stop;
 		end
 	end
-//	r=r+1;
+	r=$urandom();
 end
-
-initial
+always
 begin
-#6
-r=8'b10101010;
-
-#6
-r=8'b00101010;
-#6
-r=8'b00001010;
-#6
-r=8'b10101010;
-#6
-r=8'b11111111;
-#20
-$stop;
+	#SIMTIME
+	$display("No Error\n");
+	$stop;
 end
 endmodule
