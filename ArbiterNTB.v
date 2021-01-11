@@ -4,18 +4,18 @@
 //Test bench for Nbit Arbiter
 
 module top();
-parameter n=4;
+parameter n=8;
 parameter SIMTIME=10000;
 reg [0:n-1]r=0;
 wire [0:n-1]g;
 reg [0:n]ubound;
 ArbiterN #(n) A0(r,g);
-
-/*initial
+/*
+initial
 begin
 $monitor("%b  -  %b",r,g);
-end*/
-
+end
+*/
 always
 begin
 #10
