@@ -8,30 +8,30 @@
 //0   1 0 0
 //1   0 0 1
 //1   1 1 0
-module top;
-reg r=0, cin=0;
-wire g, cout;
-parameter SIMTIME=100;
+module top();
+reg r=0, cin=0;//initialize request and carry in
+wire g, cout;//output signals
+parameter SIMTIME=100;//set length of simulation
 
-ArbiterCell A0(r,cin,g,cout);
+ArbiterCell A0(r,cin,g,cout);//instantiate cell
 
 
 initial
 begin
 $display("Cin R G Cout");
-$monitor("%b   %b %b %b",cin, r, g, cout);
+$monitor("%b   %b %b %b",cin, r, g, cout);//monitors for changes to these varialbes and displays when changed
 end
 
 always
 begin
-#6;
-{cin,r}=$urandom();
+#10;
+{cin,r}=$urandom();//concatenate inputs and assign random number
 end
 
 always
 begin
 
-	#SIMTIME
+	#SIMTIME//run simulation for set time then stop
 	$stop;
 end
 
